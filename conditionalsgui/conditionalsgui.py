@@ -1,6 +1,9 @@
 """TO-DO: Write a description of what this XBlock is."""
 
 import pkg_resources
+import os
+import sys
+import tarfile
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer
@@ -10,10 +13,10 @@ from lxml import etree
 
 
 class ConditionalsGuiXBlock(XBlock):
+
     """
     TO-DO: document what your XBlock does.
     """
-
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
@@ -37,7 +40,8 @@ class ConditionalsGuiXBlock(XBlock):
         html = self.resource_string("static/html/conditionalsgui.html")
         frag = Fragment(html.format(self=self))
         frag.add_css(self.resource_string("static/css/conditionalsgui.css"))
-        frag.add_javascript(self.resource_string("static/js/src/conditionalsgui.js"))
+        frag.add_javascript(
+            self.resource_string("static/js/src/conditionalsgui.js"))
         frag.initialize_js('ConditionalsGuiXBlock')
         return frag
 
@@ -61,7 +65,7 @@ class ConditionalsGuiXBlock(XBlock):
             tar.close()
             print "Extracted in '%s' " % path
         else:
-            print "Not a tar.gz file: '%s '" % sys.argv[0]    
+            print "Not a tar.gz file: '%s '" % sys.argv[0]
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.

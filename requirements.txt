@@ -1,0 +1,4 @@
+libxslt
+libxml2
+lxml
+-e .
