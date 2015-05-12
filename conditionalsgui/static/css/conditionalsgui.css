@@ -1,0 +1,9 @@
+/* CSS for ConditionalsGuiXBlock */
+
+.conditionalsgui_block .count {
+    font-weight: bold;
+}
+
+.conditionalsgui_block p {
+    cursor: pointer;
+}
